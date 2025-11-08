@@ -190,12 +190,13 @@ a:focus, .btn:focus{ outline:3px solid rgba(255,225,138,0.18); outline-offset:3p
 /* changes to resume and contact sections: */
 
 /* section divider (full width thin line) */
-.section-divider{
+/*.section-divider{
   height:1px;
   background: rgba(0,0,0,0.06);
   margin: 2.2rem 0;
   border-radius: 2px;
 }
+*/
 
 /* resume card */
 .resume-card{
@@ -252,3 +253,4 @@ a:focus, .btn:focus{ outline:3px solid rgba(255,225,138,0.18); outline-offset:3p
   .resume-card, .contact-card{ flex-direction:column; align-items:stretch; }
   .resume-preview img{ width:100%; max-width:420px; height:auto; margin:0 auto; }
 }
+
