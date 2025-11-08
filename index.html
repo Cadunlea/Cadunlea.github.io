@@ -98,13 +98,16 @@
           </div>
         </article>
 
-
-        <!-- add more cards as needed -->
+        <!-- will add more cards as needed -->
+        
       </div>
 
       <p class="see-more"><a href="https://github.com/Cadunlea?tab=repositories">See more on GitHub →</a></p>
+      
     </section>
-
+    
+    <div class="section-divider" aria-hidden="true"></div>
+    
     <section id="about" class="container about">
       <h3>About</h3>
       <p>Electrical Engineering student and Randall Research Scholar at UA, working on high-voltage systems for the Battery Workforce Challenge and embedded robotics with Alabama Astrobotics. Interested in automotive, robotics, and electrical design.</p>
@@ -119,15 +122,50 @@
 
     <section id="resume" class="container resume">
       <h3>Resume</h3>
-      <p><a class="btn" href="resume.pdf" download>Download PDF</a></p>
-      <p class="muted">Freshman ECE Student involved in Alabama Astrobotics and Battery Workforce Challenge. Experienced with AI.</p>
+  
+      <!-- Resume card: preview thumbnail on left, copy + download on right -->
+      <div class="resume-card">
+        <div class="resume-preview">
+          <!-- clicking the image opens the PDF in a new tab -->
+          <a href="resume.pdf" target="_blank" rel="noopener">
+            <img src="Screenshot 2025-11-08 153239.png" alt="Resume preview" />
+          </a>
+        </div>
+
+        <div class="resume-info">
+          <p class="muted">Freshman ECE student involved in Alabama Astrobotics and the Battery Workforce Challenge. Experienced with AI and embedded systems.</p>
+
+          <p style="margin-top:.6rem">
+            <a class="btn" href="resume.pdf" download>Download PDF</a>
+            <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">View</a>
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="container contact">
       <h3>Contact</h3>
-      <p>Email: <a href="mailto:cadunlea@crimson.ua.edu">cadunlea@crimson.ua.edu</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/caelandunlea/">linkedin.com/in/caelandunlea</a></p>
-      <p>GitHub: <a href="https://github.com/Cadunlea">github.com/Cadunlea</a></p>
+
+      <div class="contact-card">
+        <div class="contact-left">
+          <p><strong>Email</strong></p>
+          <p><a href="mailto:cadunlea@crimson.ua.edu" id="contact-email">cadunlea@crimson.ua.edu</a></p>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <p><strong>Social</strong></p>
+        <p>
+          <a href="https://github.com/Cadunlea" target="_blank" rel="noopener">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/caelandunlea/" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+
+      <!--  copy button (JS below) -->
+        <p style="margin-top:.6rem">
+          <button id="copy-email" class="btn ghost" type="button">Copy email</button>
+        </p>
+      </div>
+    </div>
     </section>
   </main>
 
@@ -136,8 +174,26 @@
       <small>© 2025 Caelan Dunlea — <a href="https://github.com/Cadunlea/Cadunlea.github.io">Source</a></small>
     </div>
   </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var btn = document.getElementById('copy-email');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var email = document.getElementById('contact-email').textContent;
+      navigator.clipboard?.writeText(email).then(function(){
+        btn.textContent = 'Copied!';
+        setTimeout(()=> btn.textContent = 'Copy email', 2000);
+      }, function(){
+      // open mailto if copy fails
+      window.location.href = 'mailto:' + email;
+      });
+    });
+  });
+  </script>
 </body>
 </html>
+
 
 
 
