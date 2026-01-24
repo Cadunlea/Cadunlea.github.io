@@ -300,11 +300,11 @@ layout, and/or radiation effects failure analysis.</p>
       <h3>About</h3>
       <p>Electrical Engineering student and Randall Research Scholar at UA. Currently taking a step back from project teams to focus on upper-level coursework (Differential Equations, Probability Theory, Digital Logic) and professional roles. Previous experience with high-voltage battery systems and embedded robotics. Interested in ASIC design, digital systems, and hardware verification.</p>
       <ul class="skills">
+        <li>Simulation: Intel Quartus</li>
         <li>CAD: SolidWorks, Fusion 360</li>
         <li>Electrical: Altium Designer, KiCad</li>
         <li>Languages: C++, Java, Python, C#, FORTRAN, R</li>
         <li>Tools: Linux, Git, MATLAB</li>
-        <li>Simulation: Intel Quartus</li>
       </ul>
     </section>
 
@@ -376,6 +376,66 @@ layout, and/or radiation effects failure analysis.</p>
         setTimeout(()=> btn.textContent = 'Copy email', 2000);
       }, function(){
         window.location.href = 'mailto:' + email;
+      });
+    });
+  });
+  </script>
+
+  <!-- Scroll animations with Intersection Observer -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if user prefers reduced motion
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      // Skip animations if user prefers reduced motion
+      document.querySelectorAll('.card, .experience-card').forEach(function(el) {
+        el.classList.add('visible');
+      });
+      return;
+    }
+
+    // Intersection Observer for scroll-triggered animations
+    var observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe project cards
+    document.querySelectorAll('.card').forEach(function(card) {
+      observer.observe(card);
+    });
+
+    // Observe experience cards
+    document.querySelectorAll('.experience-card').forEach(function(card) {
+      observer.observe(card);
+    });
+
+    // Hero fade-in animation on page load
+    setTimeout(function() {
+      var hero = document.querySelector('.hero');
+      if (hero) hero.classList.add('loaded');
+    }, 100);
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('.nav a').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          var target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
       });
     });
   });
