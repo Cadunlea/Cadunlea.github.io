@@ -50,6 +50,114 @@
         gap: 0.75rem;
       }
     }
+
+    /* Experience section styling */
+    .experience {
+      background: linear-gradient(135deg, rgba(252, 177, 71, 0.03) 0%, rgba(255, 225, 138, 0.04) 100%);
+      border-radius: var(--radius);
+      padding: 1.5rem 1rem;
+      margin-top: 1rem;
+      border: 1px solid rgba(252, 177, 71, 0.08);
+    }
+
+    .experience h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .experience-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .experience-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1rem;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: var(--shadow);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .experience-card h4 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .experience-org {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .current-badge, .upcoming-badge {
+      background: rgba(252, 177, 71, 0.12);
+      color: var(--accent-warm);
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      border: 1px solid rgba(252, 177, 71, 0.2);
+    }
+
+    .upcoming-badge {
+      background: rgba(138, 76, 22, 0.08);
+      border-color: rgba(138, 76, 22, 0.15);
+    }
+
+    .experience-desc {
+      margin: 0 0 0.75rem 0;
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .experience-highlights {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .experience-highlights li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .experience-highlights li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--brand);
+      font-weight: 700;
+    }
+
+    @media (max-width: 640px) {
+      .experience-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .current-badge, .upcoming-badge {
+        align-self: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
@@ -63,6 +171,7 @@
       </h1>
 
       <nav class="nav" aria-label="Main navigation">
+        <a href="#experience">Experience</a>
         <a href="#projects">Work</a>
         <a href="#about">About</a>
         <a href="#resume">Resume</a>
@@ -76,7 +185,7 @@
       <div class="container">
         <h2 class="tagline">Hi, I'm Caelan 👋. Thanks for checking out my work.</h2>
         <p class="lead">Electrical Engineering Student @ UA | Python • Java • C++ • C#</p>
-        <small>Last updated 1/24/26. More updates soon!</small>
+        <small>Last updated 11/8/25. More updates soon!</small>
         <p>
           <a class="btn" href="#projects">View Work</a>
           <a class="btn ghost" href="#resume">Download Resume</a>
@@ -138,16 +247,64 @@
     </section>
     
     <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="experience" class="container experience">
+      <h3>Current Experience</h3>
+      
+      <div class="experience-grid">
+        <article class="experience-card current">
+          <div class="experience-header">
+            <div>
+              <h4>Learning Assistant</h4>
+              <p class="experience-org">Department of Electrical & Computer Engineering, UA</p>
+            </div>
+            <span class="current-badge">Current</span>
+          </div>
+          <p class="experience-desc">Handpicked by Dr. Freeborn to assist in ENGR 104 based on exceptional performance. Support students with circuit fundamentals, KVL/KCL circuit analysis, TinkerCAD projects, and engineering problem-solving.</p>
+          <ul class="experience-highlights">
+            <li>Faculty-selected from top-performing students</li>
+            <li>Teaching electrical engineering fundamentals and circuit design concepts</li>
+          </ul>
+        </article>
+
+        <article class="experience-card current">
+          <div class="experience-header">
+            <div>
+              <h4>Lab Manager</h4>
+              <p class="experience-org">Randall Research Scholars Program</p>
+            </div>
+            <span class="current-badge">Current</span>
+          </div>
+          <p class="experience-desc">Manage and maintain Windows and Linux server infrastructure for all RRSP faculty and students. Handle system administration, troubleshooting, and website maintenance. Ensure reliable computing resources for research scholars.</p>
+          <ul class="experience-highlights">
+            <li>Linux/Windows server administration and automation</li>
+            <li>Web infrastructure and maintenance</li>
+          </ul>
+        </article>
+
+        <article class="experience-card upcoming">
+          <div class="experience-header">
+            <div>
+              <h4>Staff Engineer Intern</h4>
+              <p class="experience-org">Reliable Microsystems</p>
+            </div>
+            <span class="upcoming-badge">Summer 2026</span>
+          </div>
+          <p class="experience-desc">Incoming summer intern supporting radiation-hardened integrated circuit contracts for DoD. Tasks include: original source code development, integrated circuit design, integrated circuit
+layout, and/or radiation effects failure analysis.</p>
+        </article>
+      </div>
+    </section>
     
     <section id="about" class="container about">
       <h3>About</h3>
-      <p>Electrical Engineering student and Randall Research Scholar at UA, working on high-voltage systems for the Battery Workforce Challenge and embedded robotics with Alabama Astrobotics. Interested in automotive, robotics, and electrical design.</p>
+      <p>Electrical Engineering student and Randall Research Scholar at UA. Currently taking a step back from project teams to focus on upper-level coursework (Differential Equations, Probability Theory, Digital Logic) and professional roles. Previous experience with high-voltage battery systems and embedded robotics. Interested in ASIC design, digital systems, and hardware verification.</p>
       <ul class="skills">
         <li>CAD: SolidWorks, Fusion 360</li>
         <li>Electrical: Altium Designer, KiCad</li>
-        <li>Coding: C++, Java, C#, Fortran</li>
-        <li>Python, PyTorch, SciPy</li>
-        <li>Web: HTML, CSS</li>
+        <li>Languages: C++, Java, Python, C#, FORTRAN, R</li>
+        <li>Tools: Linux, Git, MATLAB</li>
+        <li>Simulation: Intel Quartus</li>
       </ul>
     </section>
 
@@ -189,8 +346,8 @@
         
         <div class="contact-right">
           <p><strong>Social</strong></p>
-          <p>➤<a href="https://github.com/Cadunlea" target="_blank" rel="noopener">GitHub</a></p>
-          <p>➤<a href="https://www.linkedin.com/in/caelandunlea/" target="_blank" rel="noopener">LinkedIn</a></p>
+          <p><a href="https://github.com/Cadunlea" target="_blank" rel="noopener">GitHub</a></p>
+          <p><a href="https://www.linkedin.com/in/caelandunlea/" target="_blank" rel="noopener">LinkedIn</a></p>
         </div>
       </div>
     </section>
