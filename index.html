@@ -16,6 +16,24 @@
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#fee499" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Tiny inline styles for the view counter. Can move to style.css if ever needed -->
+  <style>
+    .view-count {
+      font-size: 0.95rem;
+      margin-left: 1rem;
+      color: #333;
+      align-self: center;
+    }
+    @media (prefers-color-scheme: dark) {
+      .view-count { color: #eaeaea; }
+    }
+    /* On narrow screens keep layout tidy */
+    @media (max-width: 640px) {
+      .view-count { display: block; margin: 0.5rem 0 0 0; }
+      .header-inner { flex-wrap: wrap; gap: 0.5rem; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -190,20 +208,61 @@
     });
   });
   </script>
+
+  <script>
+  // View counter using CountAPI (https://counterapi.dev/)
+  // Increments at most once per visitor per 24 hours (localStorage throttle)
+  (function(){
+    var el = document.getElementById('view-count');
+    if (!el) return;
+
+    var namespace = 'Cadunlea.github.io';
+    var key = 'index';
+
+    var storageKey = 'countapi_last_' + namespace + '_' + key;
+    var oneDay = 24*60*60*1000;
+
+    function showValue(v){
+      el.textContent = 'Views: ' + v;
+    }
+
+    function fetchGet(){
+      return fetch('https://api.countapi.xyz/get/' + encodeURIComponent(namespace) + '/' + encodeURIComponent(key))
+        .then(function(r){ if (!r.ok) throw r; return r.json(); })
+        .then(function(data){ if (data && typeof data.value !== 'undefined') showValue(data.value); })
+        .catch(function(){ /* silent fail */ });
+    }
+
+    function fetchIncrement(){
+      return fetch('https://api.countapi.xyz/update/' + encodeURIComponent(namespace) + '/' + encodeURIComponent(key) + '?amount=1')
+        .then(function(r){ if (!r.ok) throw r; return r.json(); })
+        .then(function(data){ if (data && typeof data.value !== 'undefined') showValue(data.value); })
+        .catch(function(){ /* silent fail */ });
+    }
+
+    try {
+      var last = localStorage.getItem(storageKey);
+      var now = Date.now();
+      if (!last || (now - parseInt(last, 10) > oneDay)) {
+        // increment and store timestamp
+        fetchIncrement().then(function(){
+          try { localStorage.setItem(storageKey, String(now)); } catch(e){}
+        }).catch(function(){
+          // on error, try to at least read current value
+          fetchGet();
+        });
+      } else {
+        // already counted recently, just get current value
+        fetchGet();
+      }
+    } catch(e) {
+      // localStorage might be blocked — tries to increment anyway
+      fetchIncrement();
+    }
+  })();
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
