@@ -17,7 +17,7 @@
   <meta name="theme-color" content="#fee499" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Tiny inline styles for the view counter. Can move to style.css if ever needed -->
+  <!-- Tiny inline styles for the view counter. Can move to style.css -->
   <style>
     .view-count {
       font-size: 0.95rem;
@@ -51,6 +51,9 @@
         <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <!-- View counter (populated by JS). aria-live for screen readers. -->
+      <div id="view-count" class="view-count" aria-live="polite">Views: —</div>
     </div>
 </header>
 
@@ -128,7 +131,7 @@
     
     <section id="about" class="container about">
       <h3>About</h3>
-      <p>Electrical Engineering student and Randall Research Scholar at UA, working on high-voltage systems for the Battery Workforce Challenge and embedded robotics with Alabama Astrobotics. Interested in automotive, robotics, and electrical design.</p>
+      <p>Electrical Engineering student and Randall Research Scholar at UA, working on high-voltage systems for the Battery Workforce Challenge and embedded robotics with Alabama Astrobotics. Interested in ASIC Design and FPGA Engineering.</p>
       <ul class="skills">
         <li>CAD: SolidWorks, Fusion 360</li>
         <li>Electrical: Altium Designer, KiCad</li>
@@ -263,8 +266,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
