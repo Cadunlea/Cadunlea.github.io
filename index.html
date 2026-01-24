@@ -158,8 +158,39 @@
         align-self: flex-start;
       }
     }
+    
+    /* Project card badges */
+    .project-badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .project-badge {
+      background: rgba(138, 76, 22, 0.08);
+      color: var(--accent-warm);
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+      border: 1px solid rgba(138, 76, 22, 0.15);
+    }
+
+    .date-badge {
+      background: rgba(252, 177, 71, 0.1);
+      color: var(--accent-warm);
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+      border: 1px solid rgba(252, 177, 71, 0.2);
+    }
   </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -198,11 +229,26 @@
 
       <div class="grid">
         <article class="card">
-          <img src="hvschematics.png" alt="High-voltage harness schematics" class="card-img" />
+          <img src="Screenshot 2026-01-24 162849.png" alt="Astrobotics schematics" class="card-img" />
           <div class="card-body">
-            <h4>Battery Workforce Challenge — HV Harness</h4>
-            <p class="muted">High-voltage harness schematics. (Altium Designer)</p>
-            <p class="small">Role: Member — Battery Disconnect Unit</p>
+            <h4>Astrobotics — Custom Driver Circuit Schematic Design</h4>
+            <p class="muted">Designed custom embedded control hardware for large multiplexed LED array. (KiCad)</p>
+            <div class="project-badges">
+              <span class="project-badge">Astrobotics</span>
+              <span class="date-badge">Spring 2026</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="IMG_7217.png" alt="Astrobotics 16x16 Cube" class="card-img" />
+          <div class="card-body">
+            <h4>Astrobotics — 16x16 LED Cube Project</h4>
+            <p class="muted">Contributed ~4k total solders to multiplexing LED cube demonstration project. (Hardware)</p>
+            <div class="project-badges">
+              <span class="project-badge">Astrobotics</span>
+              <span class="date-badge">Spring 2026</span>
+            </div>
           </div>
         </article>
 
@@ -211,7 +257,10 @@
           <div class="card-body">
             <h4>BWC — Current Sensor Circuit Board CAD</h4>
             <p class="muted">CAD of High Voltage current sensor board. (Fusion 360)</p>
-            <p class="small">Role: Member — Battery Disconnect Unit</p>
+            <div class="project-badges">
+              <span class="project-badge">Battery Disconnect Unit</span>
+              <span class="date-badge">Fall 2025</span>
+            </div>
           </div>
         </article>
 
@@ -220,7 +269,10 @@
           <div class="card-body">
             <h4>BWC — Battery Disconnect Unit CAD changes</h4>
             <p class="muted">Added CAD of High Voltage current sensor board into the main CAD. Made additional changes to busbar routing. (Fusion 360)</p>
-            <p class="small">Role: Member — Battery Disconnect Unit</p>
+            <div class="project-badges">
+              <span class="project-badge">Battery Disconnect Unit</span>
+              <span class="date-badge">Fall 2025</span>
+            </div>
           </div>
         </article>
 
@@ -229,7 +281,10 @@
           <div class="card-body">
             <h4>BWC — High Voltage Current Sensor (2950) pinouts</h4>
             <p class="muted">Worked on pinout schematics of both current sensor boards (Altium Designer)</p>
-            <p class="small">Role: Member — Battery Disconnect Unit</p>
+            <div class="project-badges">
+              <span class="project-badge">Battery Disconnect Unit</span>
+              <span class="date-badge">Fall 2025</span>
+            </div>
           </div>
         </article>
 
@@ -238,7 +293,10 @@
           <div class="card-body">
             <h4>Wheelchair Umbrella Holder Project — Shaft component CAD</h4>
             <p class="muted">Added CAD of redesigned shaft component for a wheelchair umbrella holder project. (Solidworks)</p>
-            <p class="small">Role: Tikkun Olam Makers, Wheelchair Umbrella Holder project </p>
+            <div class="project-badges">
+              <span class="project-badge">Tikkun Olam Makers</span>
+              <span class="date-badge">Fall 2025</span>
+            </div>
           </div>
         </article>
       </div>
@@ -467,4 +525,5 @@ layout, and/or radiation effects failure analysis.</p>
   });
   </script>
 </body>
+
 </html>
