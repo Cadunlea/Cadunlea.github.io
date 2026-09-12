@@ -3,531 +3,484 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Caelan Dunlea - ECE @ UA</title>
-  <meta name="description" content="Projects in SolidWorks & Fusion360, electrical schematics, and web applications. View portfolio, resume, and contact." />
-  <meta property="og:title" content="Caelan Dunlea - Portfolio" />
-  <meta property="og:description" content="projects, resume, contact." />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-96x96.png" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#fee499" />
+
+  <title>Caelan Dunlea | Electrical Engineering at Alabama</title>
+  <meta name="description" content="Electrical engineering student at the University of Alabama. PCB design, embedded systems, digital design, and hardware verification. Portfolio, resume, and contact." />
+  <meta property="og:title" content="Caelan Dunlea | Electrical Engineering" />
+  <meta property="og:description" content="PCB design, embedded systems, and digital design. Projects, resume, and contact." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-96x96.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#fcb147" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    /* Footer styling with view counter */
-    .site-footer .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .view-count {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .view-count .view-icon {
-      font-size: 1rem;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .view-count { color: #999; }
-    }
-
-    @media (max-width: 640px) {
-      .site-footer .container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-      }
-    }
-
-    /* Experience section styling */
-    .experience {
-      background: linear-gradient(135deg, rgba(252, 177, 71, 0.03) 0%, rgba(255, 225, 138, 0.04) 100%);
-      border-radius: var(--radius);
-      padding: 1.5rem 1rem;
-      margin-top: 1rem;
-      border: 1px solid rgba(252, 177, 71, 0.08);
-    }
-
-    .experience h3 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      color: var(--text);
-    }
-
-    .experience-grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .experience-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 1rem;
-      border: 1px solid rgba(0,0,0,0.04);
-      box-shadow: var(--shadow);
-    }
-
-    .experience-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .experience-card h4 {
-      margin: 0 0 0.25rem 0;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .experience-org {
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .current-badge, .upcoming-badge {
-      background: rgba(252, 177, 71, 0.12);
-      color: var(--accent-warm);
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      white-space: nowrap;
-      border: 1px solid rgba(252, 177, 71, 0.2);
-    }
-
-    .upcoming-badge {
-      background: rgba(138, 76, 22, 0.08);
-      border-color: rgba(138, 76, 22, 0.15);
-    }
-
-    .experience-desc {
-      margin: 0 0 0.75rem 0;
-      color: var(--text);
-      line-height: 1.5;
-      font-size: 0.95rem;
-    }
-
-    .experience-highlights {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .experience-highlights li {
-      font-size: 0.88rem;
-      color: var(--muted);
-      padding-left: 1.2rem;
-      position: relative;
-    }
-
-    .experience-highlights li:before {
-      content: "▸";
-      position: absolute;
-      left: 0;
-      color: var(--brand);
-      font-weight: 700;
-    }
-
-    @media (max-width: 640px) {
-      .experience-header {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      
-      .current-badge, .upcoming-badge {
-        align-self: flex-start;
-      }
-    }
-    
-    /* Project card badges */
-    .project-badges {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
-    }
-
-    .project-badge {
-      background: rgba(138, 76, 22, 0.08);
-      color: var(--accent-warm);
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      white-space: nowrap;
-      border: 1px solid rgba(138, 76, 22, 0.15);
-    }
-
-    .date-badge {
-      background: rgba(252, 177, 71, 0.1);
-      color: var(--accent-warm);
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      white-space: nowrap;
-      border: 1px solid rgba(252, 177, 71, 0.2);
-    }
-  </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
     <div class="container header-inner">
-      <h1 class="logo">
-        <a href="/" class="logo-link" aria-label="Caelan Dunlea homepage">
-          <img src="/favicon.svg" alt="Caelan logo" class="logo-img" />
-          <span class="logo-text">Caelan Dunlea</span>
-        </a>
-      </h1>
+      <a href="./" class="logo" aria-label="Caelan Dunlea, homepage">
+        <img src="favicon.svg" width="30" height="30" alt="" class="logo-img" />
+        <span class="logo-text">Caelan Dunlea</span>
+      </a>
 
       <nav class="nav" aria-label="Main navigation">
         <a href="#experience">Experience</a>
-        <a href="#projects">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#about">About</a>
-        <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
+
+    <!-- HERO -->
     <section class="hero">
-      <div class="container">
-        <h2 class="tagline">Hi, I'm Caelan 👋. Thanks for checking out my work.</h2>
-        <p class="lead">Electrical Engineering Student @ UA | Python • Java • C++ • C#</p>
-        <small>Last updated 2/1/26. More updates soon!</small>
-        <p>
-          <a class="btn" href="#projects">View Work</a>
-          <a class="btn ghost" href="#resume">Download Resume</a>
+      <div class="container hero-inner">
+        <p class="status"><span class="status-dot" aria-hidden="true"></span>Open to Summer 2027 internships</p>
+
+        <h1 class="hero-name">Caelan&nbsp;Dunlea</h1>
+
+        <p class="hero-role">Electrical engineering, University of Alabama. Randall Research Scholar.</p>
+
+        <p class="hero-lead">
+          I work on the hardware and the code that runs it: circuit boards, embedded
+          systems, and digital design. Most of my time goes to robotics electronics,
+          semiconductor design tools, and an embedded systems research lab.
         </p>
+
+        <p class="hero-actions">
+          <a class="btn" href="#projects">See my work</a>
+          <a class="btn ghost" href="resume.pdf" download>Download resume</a>
+        </p>
+
+        <dl class="facts">
+          <div class="fact">
+            <dt>GPA</dt>
+            <dd>4.00</dd>
+          </div>
+          <div class="fact">
+            <dt>Graduating</dt>
+            <dd>May 2029</dd>
+          </div>
+          <div class="fact">
+            <dt>Major</dt>
+            <dd>Electrical Engineering</dd>
+          </div>
+          <div class="fact">
+            <dt>Minor</dt>
+            <dd>Mathematics</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <section id="projects" class="container projects">
-      <h3>Selected Projects</h3>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section container">
+      <h2 class="section-title">Experience</h2>
+
+      <ol class="timeline">
+
+        <li class="entry entry-current" data-reveal>
+          <div class="entry-head">
+            <h3>Electrical, Software, and Communications Teams</h3>
+            <p class="entry-org">Alabama Astrobotics</p>
+            <p class="entry-date">Aug 2025 to present</p>
+          </div>
+          <p class="entry-desc">
+            Second season on the team, now working across three subteams. I am writing
+            the new motor controller code on the software side while staying on the
+            electrical build for the competition robot and handling communications for
+            the group.
+          </p>
+          <ul class="entry-points">
+            <li>Coding new motor controllers for the competition robot</li>
+            <li>Placing and routing the robot's electrical network across LiDAR, IMU, stereo cameras, CAN bus, and VESC controllers</li>
+            <li>Finishing the interactive LED outreach board, a 3 by 3 ft triangular panel with 1,280 LEDs, 6 full size buttons, and 3 microcontrollers, for delivery in early fall</li>
+            <li>Drew schematics for 5 custom KiCad boards that drive the LED system</li>
+          </ul>
+        </li>
+
+        <li class="entry entry-current" data-reveal>
+          <div class="entry-head">
+            <h3>Lab Manager</h3>
+            <p class="entry-org">Randall Research Scholars Program</p>
+            <p class="entry-date">Jan 2026 to present</p>
+          </div>
+          <p class="entry-desc">
+            I keep the Windows and Linux infrastructure running for a 180 person
+            research lab, from deployments and accounts down to storage and backups.
+          </p>
+          <ul class="entry-points">
+            <li>Deploy and manage applications with SCCM, Active Directory, and Synology NAS</li>
+            <li>Maintain roughly 20 TB of lab infrastructure, including security updates and version rollouts</li>
+            <li>Troubleshoot configuration, storage, and backup issues on both backends</li>
+          </ul>
+        </li>
+
+        <li class="entry entry-current" data-reveal>
+          <div class="entry-head">
+            <h3>Undergraduate Researcher, Embedded Systems</h3>
+            <p class="entry-org">Dr. Sazonov's Lab, University of Alabama</p>
+            <p class="entry-date">Jan 2026 to present</p>
+          </div>
+          <p class="entry-desc">
+            Work on food intake detection for the Automatic Ingestion Monitor, a wearable
+            sensing device.
+          </p>
+          <ul class="entry-points">
+            <li>Built Python pipelines that compare accelerometer and optical sensor data against annotated eating events</li>
+            <li>Trained and tested CNN and Transformer models, tuning parameters to about 90% accuracy</li>
+          </ul>
+        </li>
+
+        <li class="entry entry-current" data-reveal>
+          <div class="entry-head">
+            <h3>Learning Assistant</h3>
+            <p class="entry-org">Department of Electrical and Computer Engineering, UA</p>
+            <p class="entry-date">2026 to present</p>
+          </div>
+          <p class="entry-desc">
+            Selected by Dr. Freeborn to assist in ENGR 104. I help students with circuit
+            fundamentals, KVL and KCL analysis, TinkerCAD builds, and general problem
+            solving.
+          </p>
+        </li>
+
+        <li class="entry" data-reveal>
+          <div class="entry-head">
+            <h3>Staff Engineer Intern</h3>
+            <p class="entry-org">Reliable MicroSystems, Franklin, TN</p>
+            <p class="entry-date">May to Aug 2026</p>
+          </div>
+          <p class="entry-desc">
+            Spent the summer on test hardware and circuit design for 22 nm semiconductor
+            technology characterization and harsh environment testing.
+          </p>
+          <ul class="entry-points">
+            <li>Designed and routed a multi layer test board for automated measurement, with a focus on electrical isolation and bias control</li>
+            <li>Built custom circuits in Cadence Virtuoso and supported top level integration, including custom routing and dummy routing cells</li>
+            <li>Wrote Verilog RTL and testbenches supporting a memory macro design flow</li>
+          </ul>
+        </li>
+
+        <li class="entry" data-reveal>
+          <div class="entry-head">
+            <h3>Electrical Engineer, Battery Disconnect Unit</h3>
+            <p class="entry-org">Battery Workforce Challenge</p>
+            <p class="entry-date">Aug 2025 to Apr 2026</p>
+          </div>
+          <p class="entry-desc">
+            Instrumentation work on a high voltage battery system for a Department of
+            Energy competition, where the team placed 3rd overall.
+          </p>
+          <ul class="entry-points">
+            <li>Modeled board and system components in Fusion 360 and Altium Designer for shunt current, stack voltage, link voltage, and pre-charge state monitoring</li>
+            <li>Worked with a 13 person multidisciplinary team to integrate the high voltage harness into the full architecture</li>
+          </ul>
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section container">
+      <h2 class="section-title">Selected projects</h2>
+      <p class="section-note">A few things I have designed, built, or soldered a lot of.</p>
 
       <div class="grid">
-        <article class="card">
-          <img src="Screenshot 2026-01-24 162849.png" alt="Astrobotics schematics" class="card-img" />
+
+        <article class="card" data-reveal>
+          <div class="card-media">
+            <img src="Screenshot 2026-01-24 162849.png" alt="KiCad schematic for a custom LED driver circuit" loading="lazy" />
+          </div>
           <div class="card-body">
-            <h4>Astrobotics — Custom Driver Circuit Schematic Design</h4>
-            <p class="muted">Designed custom embedded control hardware for large multiplexed LED array. (KiCad)</p>
-            <div class="project-badges">
-              <span class="project-badge">Astrobotics</span>
-              <span class="date-badge">Spring 2026</span>
-            </div>
+            <h3>Custom LED driver circuit</h3>
+            <p class="card-desc">Embedded control hardware for a large multiplexed LED array, drawn in KiCad.</p>
+            <p class="tags"><span class="tag">Astrobotics</span><span class="tag">KiCad</span><span class="tag">Spring 2026</span></p>
           </div>
         </article>
 
-        <article class="card">
-          <img src="Screenshot 2026-01-24 173709.png" alt="Astrobotics 16x16 Cube" class="card-img" />
+        <article class="card" data-reveal>
+          <div class="card-media">
+            <img src="Screenshot 2026-01-24 173709.png" alt="16 by 16 multiplexing LED cube under construction" loading="lazy" />
+          </div>
           <div class="card-body">
-            <h4>Astrobotics — 16x16 LED Cube Project</h4>
-            <p class="muted">Contributed ~4k total solders to multiplexing LED cube demonstration project. (Hardware)</p>
-            <div class="project-badges">
-              <span class="project-badge">Astrobotics</span>
-              <span class="date-badge">Spring 2026</span>
-            </div>
+            <h3>16x16 LED cube</h3>
+            <p class="card-desc">Multiplexing LED cube built for demos and outreach. Around 4,000 solder joints from me alone.</p>
+            <p class="tags"><span class="tag">Astrobotics</span><span class="tag">Hardware</span><span class="tag">Spring 2026</span></p>
           </div>
         </article>
 
-        <article class="card">
-          <img src="Screenshot 2025-11-08 134142.png" alt="Fusion 360 CAD of 2950 Board" class="card-img" />
+        <article class="card" data-reveal>
+          <div class="card-media">
+            <img src="Screenshot 2025-11-08 134142.png" alt="Fusion 360 model of the high voltage current sensor board" loading="lazy" />
+          </div>
           <div class="card-body">
-            <h4>BWC — Current Sensor Circuit Board CAD</h4>
-            <p class="muted">CAD of High Voltage current sensor board. (Fusion 360)</p>
-            <div class="project-badges">
-              <span class="project-badge">Battery Disconnect Unit</span>
-              <span class="date-badge">Fall 2025</span>
-            </div>
+            <h3>High voltage current sensor board</h3>
+            <p class="card-desc">CAD model of the current sensor board used in the battery disconnect unit.</p>
+            <p class="tags"><span class="tag">Battery Workforce Challenge</span><span class="tag">Fusion 360</span><span class="tag">Fall 2025</span></p>
           </div>
         </article>
 
-        <article class="card">
-          <img src="Screenshot 2025-11-08 145233.png" alt="Battery Disconnect Unit CAD edits" class="card-img" />
+        <article class="card" data-reveal>
+          <div class="card-media">
+            <img src="Screenshot 2025-11-08 145233.png" alt="Battery disconnect unit assembly in Fusion 360" loading="lazy" />
+          </div>
           <div class="card-body">
-            <h4>BWC — Battery Disconnect Unit CAD changes</h4>
-            <p class="muted">Added CAD of High Voltage current sensor board into the main CAD. Made additional changes to busbar routing. (Fusion 360)</p>
-            <div class="project-badges">
-              <span class="project-badge">Battery Disconnect Unit</span>
-              <span class="date-badge">Fall 2025</span>
-            </div>
+            <h3>Battery disconnect unit assembly</h3>
+            <p class="card-desc">Dropped the sensor board into the main assembly and reworked the busbar routing around it.</p>
+            <p class="tags"><span class="tag">Battery Workforce Challenge</span><span class="tag">Fusion 360</span><span class="tag">Fall 2025</span></p>
           </div>
         </article>
 
-        <article class="card">
-          <img src="Screenshot 2025-11-08 150214.png" alt="HV Current Sensor Pinouts" class="card-img" />
+        <article class="card" data-reveal>
+          <div class="card-media">
+            <img src="Screenshot 2025-11-08 150214.png" alt="Altium Designer pinout schematic for the current sensor boards" loading="lazy" />
+          </div>
           <div class="card-body">
-            <h4>BWC — High Voltage Current Sensor (2950) pinouts</h4>
-            <p class="muted">Worked on pinout schematics of both current sensor boards (Altium Designer)</p>
-            <div class="project-badges">
-              <span class="project-badge">Battery Disconnect Unit</span>
-              <span class="date-badge">Fall 2025</span>
-            </div>
+            <h3>Current sensor pinouts</h3>
+            <p class="card-desc">Pinout schematics for both current sensor boards, drawn in Altium Designer.</p>
+            <p class="tags"><span class="tag">Battery Workforce Challenge</span><span class="tag">Altium</span><span class="tag">Fall 2025</span></p>
           </div>
         </article>
 
-        <article class="card">
-          <img src="Screenshot 2025-11-08 150845.png" alt="CAD of redesigned shaft component" class="card-img" />
+        <article class="card" data-reveal>
+          <div class="card-media">
+            <img src="Screenshot 2025-11-08 150845.png" alt="SolidWorks model of a redesigned umbrella holder shaft" loading="lazy" />
+          </div>
           <div class="card-body">
-            <h4>Wheelchair Umbrella Holder Project — Shaft component CAD</h4>
-            <p class="muted">Added CAD of redesigned shaft component for a wheelchair umbrella holder project. (Solidworks)</p>
-            <div class="project-badges">
-              <span class="project-badge">Tikkun Olam Makers</span>
-              <span class="date-badge">Fall 2025</span>
-            </div>
+            <h3>Wheelchair umbrella holder</h3>
+            <p class="card-desc">Redesigned shaft component for a wheelchair mounted umbrella holder built for a local client.</p>
+            <p class="tags"><span class="tag">Tikkun Olam Makers</span><span class="tag">SolidWorks</span><span class="tag">Fall 2025</span></p>
           </div>
         </article>
+
       </div>
 
-      <p class="see-more"><a href="https://github.com/Cadunlea?tab=repositories">See more on GitHub →</a></p>
-    </section>
-    
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <section id="experience" class="container experience">
-      <h3>Current Experience</h3>
-      
-      <div class="experience-grid">
-        <article class="experience-card current">
-          <div class="experience-header">
-            <div>
-              <h4>Learning Assistant</h4>
-              <p class="experience-org">Department of Electrical & Computer Engineering, UA</p>
-            </div>
-            <span class="current-badge">Current</span>
-          </div>
-          <p class="experience-desc">Handpicked by Dr. Freeborn to assist in ENGR 104 based on exceptional performance. Support students with circuit fundamentals, KVL/KCL circuit analysis, TinkerCAD projects, and engineering problem-solving.</p>
-          <ul class="experience-highlights">
-            <li>Faculty-selected from top-performing students</li>
-            <li>Teaching electrical engineering fundamentals and circuit design concepts</li>
-          </ul>
-        </article>
-
-        <article class="experience-card current">
-          <div class="experience-header">
-            <div>
-              <h4>Lab Manager</h4>
-              <p class="experience-org">Randall Research Scholars Program</p>
-            </div>
-            <span class="current-badge">Current</span>
-          </div>
-          <p class="experience-desc">Manage and maintain Windows and Linux server infrastructure for all RRSP faculty and students. Handle system administration, troubleshooting, and website maintenance. Ensure reliable computing resources for research scholars.</p>
-          <ul class="experience-highlights">
-            <li>Linux/Windows server administration and automation</li>
-            <li>Web infrastructure and maintenance</li>
-          </ul>
-        </article>
-
-        <article class="experience-card upcoming">
-          <div class="experience-header">
-            <div>
-              <h4>Staff Engineer Intern</h4>
-              <p class="experience-org">Reliable Microsystems</p>
-            </div>
-            <span class="upcoming-badge">Summer 2026</span>
-          </div>
-          <p class="experience-desc">Incoming summer intern supporting radiation-hardened integrated circuit contracts for DoD. Tasks include: original source code development, integrated circuit design, integrated circuit
-layout, and/or radiation effects failure analysis.</p>
-        </article>
-      </div>
-    </section>
-    
-    <section id="about" class="container about">
-      <h3>About</h3>
-      <p>Electrical Engineering student and Randall Research Scholar at UA. Currently taking a step back from project teams to focus on upper-level coursework (Differential Equations, Probability Theory, Digital Logic) and professional roles. Previous experience with high-voltage battery systems and embedded robotics. Interested in ASIC design, digital systems, and hardware verification.</p>
-      <ul class="skills">
-        <li>Simulation: Intel Quartus</li>
-        <li>CAD: SolidWorks, Fusion 360</li>
-        <li>Electrical: Altium Designer, KiCad</li>
-        <li>Languages: C++, Java, Python, C#, FORTRAN, R</li>
-        <li>Tools: Linux, Git, MATLAB</li>
-      </ul>
+      <p class="see-more"><a href="https://github.com/Cadunlea?tab=repositories">See more on GitHub</a></p>
     </section>
 
-    <section id="resume" class="container resume">
-      <h3>Resume</h3>
-  
-      <div class="resume-card">
-        <div class="resume-preview">
-          <a href="resume.pdf" target="_blank" rel="noopener">
-            <img src="Caelan Dunlea Resume Draft-1" alt="Resume preview" />
-          </a>
+    <!-- SKILLS -->
+    <section id="skills" class="section container">
+      <h2 class="section-title">Tools I use</h2>
+
+      <dl class="skills">
+        <div class="skill-row">
+          <dt>Schematic and layout</dt>
+          <dd><span class="chip">KiCad</span><span class="chip">Altium Designer</span><span class="chip">Cadence Virtuoso</span><span class="chip">Cadence OrCAD</span><span class="chip">PSpice</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>Digital design</dt>
+          <dd><span class="chip">Verilog</span><span class="chip">RTL to GDS flow</span><span class="chip">Intel Quartus</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>Mechanical CAD</dt>
+          <dd><span class="chip">SolidWorks</span><span class="chip">Fusion 360</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>Programming</dt>
+          <dd><span class="chip">Python</span><span class="chip">C++</span><span class="chip">C#</span><span class="chip">MATLAB</span><span class="chip">SQL</span><span class="chip">JavaScript</span><span class="chip">HTML and CSS</span><span class="chip">Fortran</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>Data and machine learning</dt>
+          <dd><span class="chip">PyTorch</span><span class="chip">NumPy</span><span class="chip">Jupyter</span><span class="chip">Anaconda</span></dd>
+        </div>
+        <div class="skill-row">
+          <dt>Systems</dt>
+          <dd><span class="chip">Linux</span><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">SCCM</span><span class="chip">Active Directory</span></dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section container">
+      <h2 class="section-title">About</h2>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I am an electrical engineering student and Randall Research Scholar at the
+            University of Alabama, graduating in 2029 with a minor in mathematics.
+          </p>
+          <p>
+            My summer was spent on semiconductor test and design work, and the school
+            year goes to robotics electronics, embedded systems research, and running a
+            research lab's servers. Coursework this year includes differential equations,
+            probability theory, and digital logic.
+          </p>
+          <p>
+            Longer term I want to work in ASIC design, digital systems, and hardware
+            verification. Outside of that I play clarinet and spend more time than I
+            should at a soldering station.
+          </p>
         </div>
 
-        <div class="resume-info">
-          <p class="muted"> </p>
-          <p class="muted">Freshman Electrical Engineering student with a minor in Mathematics & Randall Research Scholars.</p>
-          <p class="muted">Involved in Alabama Astrobotics: Electrical & Software subteams, Battery Workforce Challenge: Battery Disconnect Unit subteam</p>
+        <div class="about-side">
+          <h3 class="side-title">Awards</h3>
+          <ul class="awards">
+            <li><span>Randall Outstanding Freshman Award</span><span class="year">2026</span></li>
+            <li><span>Dean's Scholar</span><span class="year">2025 to 2026</span></li>
+            <li><span>National Merit Scholarship</span><span class="year">2025</span></li>
+            <li><span>CREATE Award, VEX Worlds</span><span class="year">2025</span></li>
+            <li><span>VEX Robotics Tennessee State Champion</span><span class="year">2025</span></li>
+            <li><span>All-State Clarinetist</span><span class="year">2025</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          <p style="margin-top:.6rem">
+    <!-- RESUME AND CONTACT -->
+    <section id="contact" class="section container">
+      <h2 class="section-title">Get in touch</h2>
+
+      <div class="contact-grid">
+
+        <div class="panel resume-panel">
+          <h3 class="panel-title">Resume</h3>
+          <p class="panel-text">One page, current as of September 2026. Full history of coursework, roles, and tooling.</p>
+          <p class="panel-actions">
             <a class="btn" href="resume.pdf" download>Download PDF</a>
-            <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">View</a>
+            <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Open in browser</a>
           </p>
         </div>
+
+        <div class="panel contact-panel">
+          <h3 class="panel-title">Contact</h3>
+          <p class="panel-text">The fastest way to reach me is email. I read LinkedIn messages too.</p>
+          <p class="email-line">
+            <a href="mailto:cadunlea@crimson.ua.edu" id="contact-email">cadunlea@crimson.ua.edu</a>
+            <button id="copy-email" class="copy-btn" type="button">Copy</button>
+          </p>
+          <p class="social">
+            <a href="https://github.com/Cadunlea" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/caelandunlea/" target="_blank" rel="noopener">LinkedIn</a>
+          </p>
+        </div>
+
       </div>
     </section>
 
-    <section id="contact" class="container contact">
-      <h3>Contact</h3>
-
-      <div class="contact-card">
-        <div class="contact-left">
-          <p><strong>Email</strong></p>
-          <p><a href="mailto:cadunlea@crimson.ua.edu" id="contact-email">cadunlea@crimson.ua.edu</a></p>
-          
-          <p style="margin-top:.6rem">
-            <button id="copy-email" class="btn ghost" type="button">Copy email</button>
-          </p>
-        </div>
-        
-        <div class="contact-right">
-          <p><strong>Social</strong></p>
-          <p><a href="https://github.com/Cadunlea" target="_blank" rel="noopener">GitHub</a></p>
-          <p><a href="https://www.linkedin.com/in/caelandunlea/" target="_blank" rel="noopener">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <small>© 2026 Caelan Dunlea — <a href="https://github.com/Cadunlea/Cadunlea.github.io">Source</a></small>
-      
-      <div id="view-count" class="view-count" aria-live="polite">
-        <span class="view-icon" aria-hidden="true">↻</span>
-        <span class="view-text">Views: ...</span>
-      </div>
+    <div class="container footer-inner">
+      <small>&copy; 2026 Caelan Dunlea. <a href="https://github.com/Cadunlea/Cadunlea.github.io">Source on GitHub</a></small>
+      <small class="footer-meta">
+        Updated September 2026
+        <span id="view-count" class="view-count" aria-live="polite">
+          <span class="view-text">Views: ...</span>
+        </span>
+      </small>
     </div>
   </footer>
 
-  <!-- Email copy button -->
+  <!-- Copy the email address to the clipboard -->
   <script>
-  document.addEventListener('DOMContentLoaded', function(){
-    var btn = document.getElementById('copy-email');
-    if (!btn) return;
-    btn.addEventListener('click', function(){
-      var email = document.getElementById('contact-email').textContent;
-      navigator.clipboard?.writeText(email).then(function(){
-        btn.textContent = 'Copied!';
-        setTimeout(()=> btn.textContent = 'Copy email', 2000);
-      }, function(){
-        window.location.href = 'mailto:' + email;
-      });
+  document.addEventListener('DOMContentLoaded', function () {
+    var button = document.getElementById('copy-email');
+    var email = document.getElementById('contact-email');
+    if (!button || !email) return;
+
+    button.addEventListener('click', function () {
+      var address = email.textContent.trim();
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(address).then(function () {
+          button.textContent = 'Copied';
+          setTimeout(function () { button.textContent = 'Copy'; }, 2000);
+        });
+      } else {
+        window.location.href = 'mailto:' + address;
+      }
     });
   });
   </script>
 
-  <!-- Scroll animations with Intersection Observer -->
+  <!-- Fade sections in as they scroll into view, and highlight the current nav link -->
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Check if user prefers reduced motion
-    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (prefersReducedMotion) {
-      // Skip animations if user prefers reduced motion
-      document.querySelectorAll('.card, .experience-card').forEach(function(el) {
-        el.classList.add('visible');
-      });
-      return;
+  document.addEventListener('DOMContentLoaded', function () {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var revealables = document.querySelectorAll('[data-reveal]');
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealables.forEach(function (el) { el.classList.add('visible'); });
+    } else {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      revealables.forEach(function (el) { revealObserver.observe(el); });
     }
 
-    // Intersection Observer for scroll-triggered animations
-    var observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    // Observe project cards
-    document.querySelectorAll('.card').forEach(function(card) {
-      observer.observe(card);
+    // Underline the nav link for whichever section is on screen.
+    var sections = document.querySelectorAll('main section[id]');
+    var navLinks = {};
+    document.querySelectorAll('.nav a').forEach(function (link) {
+      navLinks[link.getAttribute('href').replace('#', '')] = link;
     });
 
-    // Observe experience cards
-    document.querySelectorAll('.experience-card').forEach(function(card) {
-      observer.observe(card);
-    });
-
-    // Hero fade-in animation on page load
-    setTimeout(function() {
-      var hero = document.querySelector('.hero');
-      if (hero) hero.classList.add('loaded');
-    }, 100);
-
-    // Smooth scroll for navigation links
-    document.querySelectorAll('.nav a').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        var href = this.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          e.preventDefault();
-          var target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if ('IntersectionObserver' in window) {
+      var navObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var link = navLinks[entry.target.id];
+          if (!link) return;
+          if (entry.isIntersecting) {
+            Object.keys(navLinks).forEach(function (key) {
+              navLinks[key].classList.remove('active');
+            });
+            link.classList.add('active');
           }
-        }
-      });
-    });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+
+      sections.forEach(function (section) { navObserver.observe(section); });
+    }
   });
   </script>
 
-  <!-- GoatCounter tracking script -->
-  <script data-goatcounter="https://cadunlea.goatcounter.com/count" 
+  <!-- GoatCounter analytics -->
+  <script data-goatcounter="https://cadunlea.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 
-  <!-- Display view count from GoatCounter -->
+  <!-- Pull the public view count from GoatCounter -->
   <script>
-  window.addEventListener('load', function() {
-    var textEl = document.querySelector('.view-text');
-    if (!textEl) return;
+  window.addEventListener('load', function () {
+    var label = document.querySelector('.view-text');
+    if (!label) return;
 
     fetch('https://cadunlea.goatcounter.com/counter/.json')
-      .then(function(r) { 
-        if (!r.ok) throw new Error('Not available yet');
-        return r.json(); 
+      .then(function (response) {
+        if (!response.ok) throw new Error('Counter not available');
+        return response.json();
       })
-      .then(function(data) {
+      .then(function (data) {
         var count = data.count || data.count_unique || 0;
-        textEl.textContent = 'Views: ' + count.toLocaleString();
+        label.textContent = 'Views: ' + Number(String(count).replace(/\D/g, '')).toLocaleString();
       })
-      .catch(function() {
-        // Counter API not enabled yet or no data - just hide it
-        textEl.textContent = 'Views: --';
+      .catch(function () {
+        label.textContent = '';
       });
   });
   </script>
 </body>
-
 </html>
-
-
-
-
