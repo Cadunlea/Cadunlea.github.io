@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Caelan Dunlea | Electrical Engineering at Alabama</title>
-  <meta name="description" content="Electrical engineering student at the University of Alabama. PCB design, embedded systems, digital design, and hardware verification. Portfolio, resume, and contact." />
-  <meta property="og:title" content="Caelan Dunlea | Electrical Engineering" />
-  <meta property="og:description" content="PCB design, embedded systems, and digital design. Projects, resume, and contact." />
+  <title>Caelan Dunlea | VLSI and Hardware Design</title>
+  <meta name="description" content="Honors electrical engineering student at the University of Alabama. Chip design, integrated circuits, PCB design, and embedded systems." />
+  <meta property="og:title" content="Caelan Dunlea | VLSI and Hardware Design" />
+  <meta property="og:description" content="Datasheet CD-2029. Chip layout, integrated circuits, PCB design, and embedded systems." />
   <meta property="og:type" content="website" />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-96x96.png" />
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
-  <meta name="theme-color" content="#fcb147" />
+  <meta name="theme-color" content="#fffcf3" />
+
+  <!-- Apply the saved theme before the page paints, so it never flashes -->
+  <script>
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') document.documentElement.setAttribute('data-theme', saved);
+    } catch (e) {}
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -29,315 +35,356 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- BOOT INTRO: plays once per visit. script.js removes it. -->
+  <div id="boot" class="boot" aria-hidden="true">
+    <button type="button" class="boot-skip" id="boot-skip">Skip intro &gt;&gt;</button>
+    <p class="boot-label">Booting<span class="blink">_</span></p>
+    <div class="boot-chip">
+      <div class="boot-pins top">
+        <span style="--d:0s"></span><span style="--d:.08s"></span><span style="--d:.16s"></span><span style="--d:.24s"></span>
+        <span style="--d:.32s"></span><span style="--d:.40s"></span><span style="--d:.48s"></span><span style="--d:.56s"></span>
+      </div>
+      <div class="boot-body">
+        <p class="boot-name">CD-2029</p>
+        <p class="boot-sub">SKY130 · 16-PIN DIP · REV E</p>
+      </div>
+      <div class="boot-pins bottom">
+        <span style="--d:1.12s"></span><span style="--d:1.04s"></span><span style="--d:.96s"></span><span style="--d:.88s"></span>
+        <span style="--d:.80s"></span><span style="--d:.72s"></span><span style="--d:.64s"></span><span style="--d:.56s"></span>
+      </div>
+    </div>
+    <div class="boot-log">
+      <span style="--d:1.2s">POWER-ON SELF TEST ........... OK</span>
+      <span style="--d:1.6s">SRAM 2x2, 24 TRANSISTORS ..... OK</span>
+      <span style="--d:2.0s">READ SNM 478 mV .............. PASS</span>
+      <span style="--d:2.4s" class="accent">LOADING PORTFOLIO ............ ✦</span>
+    </div>
+  </div>
+
+  <div class="trace" aria-hidden="true"></div>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a href="./" class="logo" aria-label="Caelan Dunlea, homepage">
-        <img src="favicon.svg" width="30" height="30" alt="" class="logo-img" />
-        <span class="logo-text">Caelan Dunlea</span>
+      <a href="#top" class="logo" aria-label="Caelan Dunlea, homepage">
+        <svg class="star" width="21" height="21" viewBox="0 0 7 7" aria-hidden="true"><rect x="3" y="0" width="1" height="7"/><rect x="0" y="3" width="7" height="1"/><rect x="2" y="2" width="3" height="3"/></svg>
+        <span>CAELAN DUNLEA</span>
       </a>
-
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="header-right">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#pinout">Pinout</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Dark mode">
+          <span class="led" aria-hidden="true"></span>
+          <span class="switch" aria-hidden="true"><span class="knob"></span></span>
+          <span class="theme-label" aria-hidden="true">Dark</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="main">
 
     <!-- HERO -->
-    <section class="hero">
+    <section id="top" class="hero">
+      <svg class="star twinkle s1" width="28" height="28" viewBox="0 0 7 7" aria-hidden="true"><rect x="3" y="0" width="1" height="7"/><rect x="0" y="3" width="7" height="1"/><rect x="2" y="2" width="3" height="3"/></svg>
+      <svg class="star twinkle s2" width="20" height="20" viewBox="0 0 7 7" aria-hidden="true"><rect x="3" y="0" width="1" height="7"/><rect x="0" y="3" width="7" height="1"/><rect x="2" y="2" width="3" height="3"/></svg>
+      <svg class="star twinkle s3" width="24" height="24" viewBox="0 0 7 7" aria-hidden="true"><rect x="3" y="0" width="1" height="7"/><rect x="0" y="3" width="7" height="1"/><rect x="2" y="2" width="3" height="3"/></svg>
+
       <div class="container hero-inner">
-        <p class="status"><span class="status-dot" aria-hidden="true"></span>Open to Summer 2027 internships</p>
+        <div class="hero-text">
+          <p class="meta-line"><span>DATASHEET CD-2029</span><span>REV E</span><span>NOV 2026</span></p>
+          <p class="status"><span class="status-led" aria-hidden="true"></span>Open to spring &amp; fall 2027 internships</p>
+          <h1 class="hero-name">Caelan<br />Dunlea</h1>
+          <p class="hero-role">&gt; VLSI &amp; hardware design<span class="blink" aria-hidden="true">_</span></p>
+          <p class="hero-lead">Honors EE student at the University of Alabama, Randall Research Scholar, National Merit Scholar. I love all things hardware, especially chip design, integrated circuits, and radio frequency.</p>
+          <p class="hero-actions">
+            <a class="btn" href="#projects">See my work</a>
+            <a class="btn ghost" href="Caelan_Dunlea_Resume_Hardware_Physical_Design_VLSI_Intern.docx" download>Download resume</a>
+          </p>
+          <dl class="facts">
+            <div><dt>GPA</dt><dd>4.00</dd></div>
+            <div><dt>Graduating</dt><dd>May 2029</dd></div>
+            <div><dt>Major</dt><dd>Electrical Eng.</dd></div>
+            <div><dt>Minor</dt><dd>Mathematics</dd></div>
+          </dl>
+        </div>
 
-        <h1 class="hero-name">Caelan&nbsp;Dunlea</h1>
-
-        <p class="hero-role">
-          <span class="sr-only">Electrical engineering at the University of Alabama. Randall Research Scholar.</span>
-          <span class="typed" id="typed-role" aria-hidden="true"></span>
-        </p>
-
-        <p class="hero-lead">
-          I work on the hardware and the code that runs it: circuit boards, embedded
-          systems, and digital design. Most of my time goes to robotics electronics,
-          semiconductor design tools, and an embedded systems research lab.
-        </p>
-
-        <p class="hero-actions">
-          <a class="btn" href="#projects">See my work</a>
-          <a class="btn ghost" href="Caelan_Dunlea_Resume_Hardware_Physical_Design_VLSI_Intern.docx" download>Download resume</a>
-        </p>
-
-        <dl class="facts">
-          <div class="fact">
-            <dt>GPA</dt>
-            <dd>4.00</dd>
+        <figure class="dip">
+          <div class="dip-row">
+            <div class="dip-pins left">
+              <a href="#experience">Experience <span class="pin-num">1</span><span class="pin" aria-hidden="true"></span></a>
+              <a href="#projects">Projects <span class="pin-num">2</span><span class="pin" aria-hidden="true"></span></a>
+              <a href="#pinout">Pinout <span class="pin-num">3</span><span class="pin" aria-hidden="true"></span></a>
+              <a href="#about">About <span class="pin-num">4</span><span class="pin" aria-hidden="true"></span></a>
+            </div>
+            <div class="dip-body" role="img" aria-label="Pixel-art chip labeled CD-2029">
+              <span class="notch" aria-hidden="true"></span>
+              <span class="dot" aria-hidden="true"></span>
+              <svg class="star twinkle" width="35" height="35" viewBox="0 0 7 7" aria-hidden="true"><rect x="3" y="0" width="1" height="7"/><rect x="0" y="3" width="7" height="1"/><rect x="2" y="2" width="3" height="3"/></svg>
+              <p class="dip-name">CD-2029</p>
+              <p class="dip-sub">SKY130 · REV E<br />TUSCALOOSA, AL</p>
+            </div>
+            <div class="dip-pins right">
+              <a href="#contact"><span class="pin" aria-hidden="true"></span><span class="pin-num">8</span> Contact</a>
+              <a href="Caelan_Dunlea_Resume_Hardware_Physical_Design_VLSI_Intern.docx" download><span class="pin" aria-hidden="true"></span><span class="pin-num">7</span> Resume</a>
+              <a href="https://github.com/Cadunlea" target="_blank" rel="noopener"><span class="pin" aria-hidden="true"></span><span class="pin-num">6</span> GitHub</a>
+              <a href="https://www.linkedin.com/in/caelandunlea/" target="_blank" rel="noopener"><span class="pin" aria-hidden="true"></span><span class="pin-num">5</span> LinkedIn</a>
+            </div>
           </div>
-          <div class="fact">
-            <dt>Graduating</dt>
-            <dd>May 2029</dd>
-          </div>
-          <div class="fact">
-            <dt>Major</dt>
-            <dd>Electrical Engineering</dd>
-          </div>
-          <div class="fact">
-            <dt>Minor</dt>
-            <dd>Mathematics</dd>
-          </div>
-        </dl>
+          <figcaption>FIG. 0 · Pinout (pins are links)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- FIGURE 1 -->
+    <section class="fig-band" aria-label="Figure 1, SRAM array layout">
+      <div class="container">
+        <img class="px" src="assets/sram-array.png" alt="My Magic layout of a 2 by 2 6T SRAM array, with pink metal-2 word lines, green diffusion, blue local interconnect, and hatched n-wells" />
+        <p class="caption"><span>FIG. 1 · 2×2 6T SRAM array, SkyWater 130 nm, drawn by hand in Magic</span><span>DRC 0 · LVS match · 64.6 µm²</span></p>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience" class="section container">
-      <h2 class="section-title">Experience</h2>
+      <div class="sec-head">
+        <h2><span class="sec-num">§1</span>Experience</h2>
+        <p>CD-2029 · PAGE 2 OF 6</p>
+      </div>
 
-      <ol class="timeline">
+      <h3 class="group"><svg class="star" width="14" height="14" viewBox="0 0 7 7" aria-hidden="true"><rect x="3" y="0" width="1" height="7"/><rect x="0" y="3" width="7" height="1"/><rect x="2" y="2" width="3" height="3"/></svg>Research</h3>
 
-        <li class="entry entry-current" data-reveal>
-          <div class="entry-head">
-            <h3>Electrical, Software, and Communications Teams</h3>
-            <p class="entry-org">Alabama Astrobotics</p>
-            <p class="entry-date">Aug 2025 to present</p>
-          </div>
-          <p class="entry-desc">
-            Second season on the team, now working across three subteams. I am writing
-            the new motor controller code on the software side while staying on the
-            electrical build for the competition robot and handling communications for
-            the group.
-          </p>
-          <ul class="entry-points">
-            <li>Coding new motor controllers for the competition robot</li>
-            <li>Placing and routing the robot's electrical network across LiDAR, IMU, stereo cameras, CAN bus, and VESC controllers</li>
-            <li>Finishing the interactive LED outreach board, a 3 by 3 ft triangular panel with 1,280 LEDs, 6 full size buttons, and 3 microcontrollers, for delivery in early fall</li>
-            <li>Drew schematics for 5 custom KiCad boards that drive the LED system</li>
+      <article class="entry">
+        <div class="entry-date"><span>Sep 2026 – present</span><span class="badge active">Active</span></div>
+        <div class="entry-body">
+          <h4>Undergraduate Researcher, VLSI Design</h4>
+          <p class="entry-org">University of Alabama</p>
+          <ul>
+            <li>I designed a CMOS inverter and a 6T SRAM cell in SkyWater 130 nm using open-source tools, taking each one from schematic through DRC-clean layout, LVS match, and post-layout simulation.</li>
+            <li>I built a 2×2 array from mirrored, shared-contact cells that is 21% smaller than four standalone cells, and I found a supply break that passed DRC but failed extraction.</li>
+            <li>Butterfly-curve analysis shows a read SNM of 478 mV at the typical corner and 398 mV in the worst case across all five process corners.</li>
           </ul>
-        </li>
+        </div>
+      </article>
 
-        <li class="entry entry-current" data-reveal>
-          <div class="entry-head">
-            <h3>Lab Manager</h3>
-            <p class="entry-org">Randall Research Scholars Program</p>
-            <p class="entry-date">Jan 2026 to present</p>
-          </div>
-          <p class="entry-desc">
-            I keep the Windows and Linux infrastructure running for a 180 person
-            research lab, from deployments and accounts down to storage and backups.
-          </p>
-          <ul class="entry-points">
-            <li>Deploy and manage applications with SCCM, Active Directory, and Synology NAS</li>
-            <li>Maintain roughly 20 TB of lab infrastructure, including security updates and version rollouts</li>
-            <li>Troubleshoot configuration, storage, and backup issues on both backends</li>
+      <article class="entry">
+        <div class="entry-date"><span>Jan 2026 – present</span><span class="badge active">Active</span></div>
+        <div class="entry-body">
+          <h4>Undergraduate Researcher, Embedded Systems</h4>
+          <p class="entry-org">Dr. Sazonov’s Lab, University of Alabama</p>
+          <ul>
+            <li>I build Python pipelines for the Automatic Ingestion Monitor, a wearable food intake sensor, that compare accelerometer and optical data against annotated eating events.</li>
+            <li>I trained CNN and Transformer models and tuned them to about 90% accuracy.</li>
           </ul>
-        </li>
+        </div>
+      </article>
 
-        <li class="entry entry-current" data-reveal>
-          <div class="entry-head">
-            <h3>Undergraduate Researcher, Embedded Systems</h3>
-            <p class="entry-org">Dr. Sazonov's Lab, University of Alabama</p>
-            <p class="entry-date">Jan 2026 to present</p>
-          </div>
-          <p class="entry-desc">
-            Work on food intake detection for the Automatic Ingestion Monitor, a wearable
-            sensing device.
-          </p>
-          <ul class="entry-points">
-            <li>Built Python pipelines that compare accelerometer and optical sensor data against annotated eating events</li>
-            <li>Trained and tested CNN and Transformer models, tuning parameters to about 90% accuracy</li>
+      <article class="entry last">
+        <div class="entry-date"><span>Jan 2026 – present</span><span class="badge active">Active</span></div>
+        <div class="entry-body">
+          <h4>Lab Manager</h4>
+          <p class="entry-org">Randall Research Scholars Program</p>
+          <ul>
+            <li>I run the Windows and Linux infrastructure for a 180-person research lab, including SCCM, Active Directory, and about 20 TB of Synology storage and backups.</li>
           </ul>
-        </li>
+        </div>
+      </article>
 
-        <li class="entry entry-current" data-reveal>
-          <div class="entry-head">
-            <h3>Learning Assistant</h3>
-            <p class="entry-org">Department of Electrical and Computer Engineering, UA</p>
-            <p class="entry-date">2026 to present</p>
-          </div>
-          <p class="entry-desc">
-            Selected by Dr. Freeborn to assist in ENGR 104. I help students with circuit
-            fundamentals, KVL and KCL analysis, TinkerCAD builds, and general problem
-            solving.
-          </p>
-        </li>
+      <h3 class="group"><svg class="star" width="14" height="14" viewBox="0 0 7 7" aria-hidden="true"><rect x="3" y="0" width="1" height="7"/><rect x="0" y="3" width="7" height="1"/><rect x="2" y="2" width="3" height="3"/></svg>Internships</h3>
 
-        <li class="entry" data-reveal>
-          <div class="entry-head">
-            <h3>Staff Engineer Intern</h3>
-            <p class="entry-org">Reliable MicroSystems, Franklin, TN</p>
-            <p class="entry-date">May to Aug 2026</p>
-          </div>
-          <p class="entry-desc">
-            Spent the summer on test hardware and circuit design for 22 nm semiconductor
-            technology characterization and harsh environment testing.
-          </p>
-          <ul class="entry-points">
-            <li>Designed and routed a multi layer test board for automated measurement, with a focus on electrical isolation and bias control</li>
-            <li>Built custom circuits in Cadence Virtuoso and supported top level integration, including custom routing and dummy routing cells</li>
-            <li>Wrote Verilog RTL and testbenches supporting a memory macro design flow</li>
+      <article class="entry">
+        <div class="entry-date"><span>Summer 2027</span><span class="badge soon">Upcoming</span></div>
+        <div class="entry-body">
+          <h4>Incoming Intern</h4>
+          <p class="entry-org">HII Mission Technologies</p>
+        </div>
+      </article>
+
+      <article class="entry last">
+        <div class="entry-date"><span>May – Aug 2026</span></div>
+        <div class="entry-body">
+          <h4>Staff Engineer Intern</h4>
+          <p class="entry-org">Reliable MicroSystems, Franklin, TN</p>
+          <ul>
+            <li>I designed and routed a multi-layer test board for automated measurement of 22 nm technology, with a focus on electrical isolation and bias control.</li>
+            <li>I built custom circuits in Cadence Virtuoso and supported top-level integration, including custom routing and dummy routing cells.</li>
+            <li>I wrote Verilog RTL and testbenches that supported a memory macro design flow.</li>
           </ul>
-        </li>
+        </div>
+      </article>
 
-        <li class="entry" data-reveal>
-          <div class="entry-head">
-            <h3>Electrical Engineer, Battery Disconnect Unit</h3>
-            <p class="entry-org">Battery Workforce Challenge</p>
-            <p class="entry-date">Aug 2025 to Apr 2026</p>
-          </div>
-          <p class="entry-desc">
-            Instrumentation work on a high voltage battery system for a Department of
-            Energy competition, where the team placed 3rd overall.
-          </p>
-          <ul class="entry-points">
-            <li>Modeled board and system components in Fusion 360 and Altium Designer for shunt current, stack voltage, link voltage, and pre-charge state monitoring</li>
-            <li>Worked with a 13 person multidisciplinary team to integrate the high voltage harness into the full architecture</li>
+      <h3 class="group"><svg class="star" width="14" height="14" viewBox="0 0 7 7" aria-hidden="true"><rect x="3" y="0" width="1" height="7"/><rect x="0" y="3" width="7" height="1"/><rect x="2" y="2" width="3" height="3"/></svg>Student design teams</h3>
+
+      <article class="entry">
+        <div class="entry-date"><span>Aug 2025 – present</span><span class="badge active">Active</span></div>
+        <div class="entry-body">
+          <h4>Electrical, Software, and Communications Teams</h4>
+          <p class="entry-org">Alabama Astrobotics</p>
+          <ul>
+            <li>I am coding new motor controllers and routing the robot’s electrical network across LiDAR, IMU, stereo cameras, CAN bus, and VESC controllers.</li>
+            <li>I am building an interactive outreach board, a 3 ft triangle with 1,280 LEDs, 6 buttons, and 3 microcontrollers driven by 5 custom KiCad boards.</li>
           </ul>
-        </li>
+        </div>
+      </article>
 
-      </ol>
+      <article class="entry last">
+        <div class="entry-date"><span>Aug 2025 – Apr 2026</span></div>
+        <div class="entry-body">
+          <h4>Electrical Engineer, Battery Disconnect Unit</h4>
+          <p class="entry-org">Battery Workforce Challenge · 3rd place overall</p>
+          <ul>
+            <li>I modeled sensing boards in Fusion 360 and Altium for shunt current, stack and link voltage, and pre-charge monitoring as part of a 13-person team.</li>
+          </ul>
+        </div>
+      </article>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects" class="section container">
-      <h2 class="section-title">Selected projects</h2>
-      <p class="section-note">A few things I have designed, built, or soldered a lot of.</p>
-
-      <div class="grid">
-
-        <article class="card" data-reveal>
-          <div class="card-media">
-            <img src="Screenshot 2026-01-24 162849.png" alt="KiCad schematic for a custom LED driver circuit" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h3>Custom LED driver circuit</h3>
-            <p class="card-desc">Embedded control hardware for a large multiplexed LED array, drawn in KiCad.</p>
-            <p class="tags"><span class="tag">Astrobotics</span><span class="tag">KiCad</span><span class="tag">Spring 2026</span></p>
-          </div>
-        </article>
-
-        <article class="card" data-reveal>
-          <div class="card-media">
-            <img src="Screenshot 2026-01-24 173709.png" alt="16 by 16 multiplexing LED cube under construction" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h3>16x16 LED cube</h3>
-            <p class="card-desc">Multiplexing LED cube built for demos and outreach. Around 4,000 solder joints from me alone.</p>
-            <p class="tags"><span class="tag">Astrobotics</span><span class="tag">Hardware</span><span class="tag">Spring 2026</span></p>
-          </div>
-        </article>
-
-        <article class="card" data-reveal>
-          <div class="card-media">
-            <img src="Screenshot 2025-11-08 134142.png" alt="Fusion 360 model of the high voltage current sensor board" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h3>High voltage current sensor board</h3>
-            <p class="card-desc">CAD model of the current sensor board used in the battery disconnect unit.</p>
-            <p class="tags"><span class="tag">Battery Workforce Challenge</span><span class="tag">Fusion 360</span><span class="tag">Fall 2025</span></p>
-          </div>
-        </article>
-
-        <article class="card" data-reveal>
-          <div class="card-media">
-            <img src="Screenshot 2025-11-08 145233.png" alt="Battery disconnect unit assembly in Fusion 360" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h3>Battery disconnect unit assembly</h3>
-            <p class="card-desc">Dropped the sensor board into the main assembly and reworked the busbar routing around it.</p>
-            <p class="tags"><span class="tag">Battery Workforce Challenge</span><span class="tag">Fusion 360</span><span class="tag">Fall 2025</span></p>
-          </div>
-        </article>
-
-        <article class="card" data-reveal>
-          <div class="card-media">
-            <img src="Screenshot 2025-11-08 150214.png" alt="Altium Designer pinout schematic for the current sensor boards" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h3>Current sensor pinouts</h3>
-            <p class="card-desc">Pinout schematics for both current sensor boards, drawn in Altium Designer.</p>
-            <p class="tags"><span class="tag">Battery Workforce Challenge</span><span class="tag">Altium</span><span class="tag">Fall 2025</span></p>
-          </div>
-        </article>
-
-        <article class="card" data-reveal>
-          <div class="card-media">
-            <img src="Screenshot 2025-11-08 150845.png" alt="SolidWorks model of a redesigned umbrella holder shaft" loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h3>Wheelchair umbrella holder</h3>
-            <p class="card-desc">Redesigned shaft component for a wheelchair mounted umbrella holder built for a local client.</p>
-            <p class="tags"><span class="tag">Tikkun Olam Makers</span><span class="tag">SolidWorks</span><span class="tag">Fall 2025</span></p>
-          </div>
-        </article>
-
+      <div class="sec-head">
+        <h2><span class="sec-num">§2</span>Projects</h2>
+        <p>CD-2029 · PAGE 3 OF 6</p>
       </div>
 
-      <p class="see-more"><a href="https://github.com/Cadunlea?tab=repositories">See more on GitHub</a></p>
+      <article class="featured">
+        <div class="featured-bar">
+          <span><svg class="star" width="14" height="14" viewBox="0 0 7 7" aria-hidden="true"><rect x="3" y="0" width="1" height="7"/><rect x="0" y="3" width="7" height="1"/><rect x="2" y="2" width="3" height="3"/></svg>Featured project</span>
+          <span>Fall 2026</span>
+        </div>
+        <div class="featured-main">
+          <div class="featured-text">
+            <h3>6T SRAM in SkyWater 130 nm</h3>
+            <p>I designed a 6T SRAM cell, tiled it into a verified 2×2 array, and tested how well it holds its data during a read and across process corners.</p>
+            <p class="tags"><span>sky130</span><span>Magic</span><span>Xschem</span><span>ngspice</span><span>Netgen</span></p>
+            <div class="featured-actions">
+              <button type="button" class="btn" id="open-slides">View the slides</button>
+              <a class="text-link" href="assets/Open-Source_Chip_Design_sky130_Dunlea.pdf" download>Download PDF</a>
+            </div>
+          </div>
+          <figure class="featured-fig">
+            <img class="px" src="assets/sram-cell.png" alt="My Magic layout of one 6T SRAM cell, with pull-up pfets in the hatched n-well, pull-down nfets in green diffusion, and a metal-2 word line across the middle" />
+            <figcaption>FIG. 2 · One 6T cell (my layout), 7.39 × 2.75 µm, DRC 0</figcaption>
+          </figure>
+        </div>
+
+        <div class="skills-built">
+          <h4>Skills built</h4>
+          <p>Each step used open-source tools. Here’s how this maps to industry.</p>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th scope="col">Skill</th><th scope="col">What I used</th><th scope="col">Industry equivalent</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Schematic capture &amp; simulation</th><td>Xschem, ngspice</td><td>Virtuoso Schematic, Spectre</td></tr>
+                <tr><th scope="row">Full-custom layout</th><td>Magic</td><td>Virtuoso Layout</td></tr>
+                <tr><th scope="row">Physical verification (DRC, LVS)</th><td>Magic DRC, Netgen</td><td>Calibre DRC / LVS</td></tr>
+                <tr><th scope="row">Parasitic extraction, post-layout sim</th><td>Magic ext2spice, ngspice</td><td>Quantus / Calibre xRC, Spectre</td></tr>
+                <tr><th scope="row">Stability analysis (SNM, process corners)</th><td>ngspice DC sweeps, Excel</td><td>Spectre corner analysis in ADE</td></tr>
+                <tr><th scope="row">Design automation</th><td>bash, sed</td><td>SKILL, OCEAN, Python</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <dl class="stats">
+          <div><dt>Read SNM, typical</dt><dd>478 mV</dd></div>
+          <div><dt>Worst corner (sf)</dt><dd>398 mV</dd></div>
+          <div><dt>Area vs. 4 cells</dt><dd>−21%</dd></div>
+          <div><dt>Array LVS</dt><dd>24/24</dd></div>
+        </dl>
+      </article>
+
+      <div class="grid">
+        <article class="card">
+          <img class="px contain" src="assets/inverter.png" alt="My Magic layout of a CMOS inverter, with the PMOS on top in the n-well, the NMOS below, and a shared poly gate" loading="lazy" />
+          <div class="card-body">
+            <h3>CMOS inverter, schematic to silicon</h3>
+            <p>Created with the full open-source flow. Used Xschem, Magic, Netgen LVS, and post-layout PEX.</p>
+            <p class="card-meta">sky130 · Fall 2026</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="Screenshot%202026-01-24%20173709.png" alt="16 by 16 multiplexing LED cube under construction" loading="lazy" />
+          <div class="card-body">
+            <h3>16×16 LED cube</h3>
+            <p>Helped create this multiplexing LED cube for demos and outreach. I contributed about 3,000 solder joints.</p>
+            <p class="card-meta">Astrobotics · Spring 2026</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="Screenshot%202026-01-24%20162849.png" alt="KiCad schematic for a custom LED driver circuit" loading="lazy" />
+          <div class="card-body">
+            <h3>Custom LED driver circuit</h3>
+            <p>Custom embedded control hardware for a 1,280 LED multiplexing system. Designed schematic in KiCad. Later split into 5 different designs.</p>
+            <p class="card-meta">Astrobotics · Spring 2026</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="Screenshot%202025-11-08%20134142.png" alt="Fusion 360 model of the high voltage current sensor board" loading="lazy" />
+          <div class="card-body">
+            <h3>High-voltage current sensing</h3>
+            <p>I modeled the current sensor board in Fusion 360 and Altium, then fit it into the battery disconnect unit and reworked the busbar routing around it.</p>
+            <p class="card-meta">Battery Workforce Challenge · Fall 2025</p>
+          </div>
+        </article>
+      </div>
+      <p class="see-more"><a href="https://github.com/Cadunlea?tab=repositories">More on GitHub &gt;</a></p>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section container">
-      <h2 class="section-title">Tools I use</h2>
-
-      <dl class="skills">
-        <div class="skill-row">
-          <dt>Schematic and layout</dt>
-          <dd><span class="chip">KiCad</span><span class="chip">Altium Designer</span><span class="chip">Cadence Virtuoso</span><span class="chip">Cadence OrCAD</span><span class="chip">PSpice</span></dd>
+    <!-- PINOUT -->
+    <section id="pinout" class="section container">
+      <div class="sec-head">
+        <h2><span class="sec-num">§3</span>Pinout</h2>
+        <p>TOOLS · PAGE 4 OF 6</p>
+      </div>
+      <dl class="pinout">
+        <div>
+          <dt><span class="pin-n">01</span><svg class="icon" viewBox="0 0 8 8" aria-hidden="true"><rect x="2" y="2" width="4" height="4"/><rect x="0" y="2" width="1" height="1"/><rect x="0" y="5" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="7" y="5" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="2" y="7" width="1" height="1"/><rect x="5" y="7" width="1" height="1"/></svg>Chip design</dt>
+          <dd class="tint-pink"><span>Cadence Virtuoso</span><span>Magic</span><span>Xschem</span><span>ngspice</span><span>Netgen</span></dd>
         </div>
-        <div class="skill-row">
-          <dt>Digital design</dt>
-          <dd><span class="chip">Verilog</span><span class="chip">RTL to GDS flow</span><span class="chip">Intel Quartus</span></dd>
+        <div>
+          <dt><span class="pin-n">02</span><svg class="icon" viewBox="0 0 8 8" aria-hidden="true"><rect x="0" y="0" width="8" height="1"/><rect x="0" y="7" width="8" height="1"/><rect x="0" y="0" width="1" height="8"/><rect x="7" y="0" width="1" height="8"/><rect x="2" y="2" width="2" height="2"/><rect x="4" y="3" width="2" height="1"/><rect x="5" y="3" width="1" height="3"/></svg>PCB</dt>
+          <dd class="tint-green"><span>KiCad</span><span>Altium Designer</span><span>Cadence OrCAD</span><span>PSpice</span></dd>
         </div>
-        <div class="skill-row">
-          <dt>Mechanical CAD</dt>
-          <dd><span class="chip">SolidWorks</span><span class="chip">Fusion 360</span></dd>
+        <div>
+          <dt><span class="pin-n">03</span><svg class="icon" viewBox="0 0 8 8" aria-hidden="true"><rect x="0" y="5" width="2" height="1"/><rect x="2" y="2" width="1" height="4"/><rect x="2" y="2" width="3" height="1"/><rect x="4" y="2" width="1" height="4"/><rect x="4" y="5" width="3" height="1"/><rect x="6" y="2" width="1" height="4"/><rect x="6" y="2" width="2" height="1"/></svg>Digital</dt>
+          <dd class="tint-blue"><span>Verilog</span><span>RTL-to-GDS flow</span><span>Intel Quartus</span></dd>
         </div>
-        <div class="skill-row">
-          <dt>Programming</dt>
-          <dd><span class="chip">Python</span><span class="chip">C++</span><span class="chip">C#</span><span class="chip">MATLAB</span><span class="chip">SQL</span><span class="chip">JavaScript</span><span class="chip">HTML and CSS</span><span class="chip">Fortran</span></dd>
+        <div>
+          <dt><span class="pin-n">04</span><svg class="icon" viewBox="0 0 8 8" aria-hidden="true"><rect x="0" y="1" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="1" y="4" width="1" height="1"/><rect x="0" y="5" width="1" height="1"/><rect x="4" y="5" width="4" height="1"/></svg>Code</dt>
+          <dd class="tint-purple"><span>Python</span><span>C++</span><span>C#</span><span>Bash</span><span>MATLAB</span><span>SQL</span><span>JavaScript</span><span>Fortran</span><span>PyTorch</span><span>NumPy</span></dd>
         </div>
-        <div class="skill-row">
-          <dt>Data and machine learning</dt>
-          <dd><span class="chip">PyTorch</span><span class="chip">NumPy</span><span class="chip">Jupyter</span><span class="chip">Anaconda</span></dd>
+        <div>
+          <dt><span class="pin-n">05</span><svg class="icon" viewBox="0 0 8 8" aria-hidden="true"><rect x="0" y="2" width="6" height="1"/><rect x="0" y="7" width="6" height="1"/><rect x="0" y="2" width="1" height="6"/><rect x="5" y="2" width="1" height="6"/><rect x="2" y="0" width="6" height="1"/><rect x="7" y="0" width="1" height="6"/><rect x="1" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/></svg>CAD</dt>
+          <dd><span>SolidWorks</span><span>Fusion 360</span></dd>
         </div>
-        <div class="skill-row">
-          <dt>Systems</dt>
-          <dd><span class="chip">Linux</span><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">SCCM</span><span class="chip">Active Directory</span></dd>
+        <div>
+          <dt><span class="pin-n">06</span><svg class="icon" viewBox="0 0 8 8" aria-hidden="true"><rect x="0" y="0" width="8" height="2"/><rect x="0" y="3" width="8" height="2"/><rect x="0" y="6" width="8" height="2"/></svg>Systems</dt>
+          <dd><span>Linux</span><span>Git</span><span>Docker</span><span>SCCM</span><span>Active Directory</span></dd>
         </div>
       </dl>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section container">
-      <h2 class="section-title">About</h2>
-
+      <div class="sec-head">
+        <h2><span class="sec-num">§4</span>About</h2>
+        <p>PAGE 5 OF 6</p>
+      </div>
       <div class="about-grid">
         <div class="about-text">
-          <p>
-            I am an electrical engineering student and Randall Research Scholar at the
-            University of Alabama, graduating in 2029 with a minor in mathematics.
-          </p>
-          <p>
-            My summer was spent on semiconductor test and design work, and the school
-            year goes to robotics electronics, embedded systems research, and running a
-            research lab's servers. Coursework this year includes differential equations,
-            probability theory, and digital logic.
-          </p>
-          <p>
-            Longer term I want to work in ASIC design, digital systems, and hardware
-            verification. Outside of that I play clarinet and spend more time than I
-            should at a soldering station.
-          </p>
+          <p>In summer 2026, I focused on semiconductor testing and ASIC design at Reliable MicroSystems. During my semesters, I focus on improving my skills in chip layout, robotics electronics, and embedded systems research, and on improving quality of life in the Randall lab (hardware, software, and more).</p>
+          <p>Long term, I want to work in ASIC or RFIC design, digital systems, and hardware verification. Outside of that, I play clarinet, learn German, and solder every now and then.</p>
         </div>
-
-        <div class="about-side">
-          <h3 class="side-title">Awards</h3>
+        <div class="awards-box">
+          <h3><svg class="star" width="14" height="14" viewBox="0 0 7 7" aria-hidden="true"><rect x="3" y="0" width="1" height="7"/><rect x="0" y="3" width="7" height="1"/><rect x="2" y="2" width="3" height="3"/></svg>Awards &amp; recognition</h3>
           <ul class="awards">
+            <li><span>Certificate of Completion, Undergraduate Microelectronics Training Program (NSF-funded)</span><span class="year">2026</span></li>
             <li><span>Randall Outstanding Freshman Award</span><span class="year">2026</span></li>
-            <li><span>Dean's Scholar</span><span class="year">2025 to 2026</span></li>
+            <li><span>President’s List, 4.0</span><span class="year">2025–2026</span></li>
+            <li><span>Dean’s Scholar</span><span class="year">2025–2026</span></li>
             <li><span>National Merit Scholarship</span><span class="year">2025</span></li>
             <li><span>CREATE Award, VEX Worlds</span><span class="year">2025</span></li>
             <li><span>VEX Robotics Tennessee State Champion</span><span class="year">2025</span></li>
@@ -347,143 +394,50 @@
       </div>
     </section>
 
-    <!-- RESUME AND CONTACT -->
-    <section id="contact" class="section container">
-      <h2 class="section-title">Get in touch</h2>
-
-      <div class="contact-grid">
-
-        <div class="panel resume-panel">
-          <h3 class="panel-title">Resume</h3>
-          <p class="panel-text">One page, current as of September 2026. Full history of coursework, roles, and tooling.</p>
-          <p class="panel-actions">
-            <a class="btn" href="Caelan_Dunlea_Resume_Hardware_Physical_Design_VLSI_Intern.docx" download>Download PDF</a>
-            <a class="btn ghost" href="Caelan_Dunlea_Resume_Hardware_Physical_Design_VLSI_Intern.docx" target="_blank" rel="noopener">Open in browser</a>
-          </p>
-        </div>
-
-        <div class="panel contact-panel">
-          <h3 class="panel-title">Contact</h3>
-          <p class="panel-text">The fastest way to reach me is email. I read LinkedIn messages too.</p>
-          <p class="email-line">
-            <a href="mailto:cadunlea@crimson.ua.edu" id="contact-email">cadunlea@crimson.ua.edu</a>
-            <button id="copy-email" class="copy-btn" type="button">Copy</button>
-          </p>
-          <p class="social">
-            <a href="https://github.com/Cadunlea" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/caelandunlea/" target="_blank" rel="noopener">LinkedIn</a>
-          </p>
-        </div>
-
+    <!-- CONTACT -->
+    <section id="contact" class="section container contact">
+      <div class="sec-head">
+        <h2><span class="sec-num">§5</span>Ordering information</h2>
+        <p>PAGE 6 OF 6</p>
       </div>
+      <p class="contact-note">If you want to reach me, email is the fastest method. Available for spring and fall 2027 internships.</p>
+      <dl class="order">
+        <div><dt>Email</dt><dd><a href="mailto:cadunlea@crimson.ua.edu" id="contact-email">cadunlea@crimson.ua.edu</a> <button id="copy-email" class="copy-btn" type="button">Copy</button></dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/caelandunlea/" target="_blank" rel="noopener">in/caelandunlea</a></dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/Cadunlea" target="_blank" rel="noopener">@Cadunlea</a></dd></div>
+        <div><dt>Resume</dt><dd><a href="Caelan_Dunlea_Resume_Hardware_Physical_Design_VLSI_Intern.docx" download>Download resume</a></dd></div>
+      </dl>
     </section>
 
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <small>&copy; 2026 Caelan Dunlea. <a href="https://github.com/Cadunlea/Cadunlea.github.io">Source on GitHub</a></small>
-      <small class="footer-meta">
-        Updated September 2026
-        <span id="view-count" class="view-count" aria-live="polite">
-          <span class="view-text">Views: ...</span>
-        </span>
-      </small>
+      <small>© 2026 Caelan Dunlea · Datasheet CD-2029 rev E · <a href="https://github.com/Cadunlea/Cadunlea.github.io">Source on GitHub</a></small>
+      <small>Updated November 2026 <span id="view-count" class="view-count" aria-live="polite"><span class="view-text"></span></span></small>
     </div>
   </footer>
 
-  <!-- Copy the email address to the clipboard -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var button = document.getElementById('copy-email');
-    var email = document.getElementById('contact-email');
-    if (!button || !email) return;
+  <!-- SLIDES POPUP -->
+  <dialog id="slides" class="slides" aria-label="Presentation slides">
+    <div class="slides-bar">
+      <span>Open-Source Chip Design and Verification in SkyWater 130nm</span>
+      <button type="button" id="close-slides" aria-label="Close slides">X</button>
+    </div>
+    <div class="slides-view">
+      <img id="slide-img" src="assets/slides/slide-01.jpg" alt="Slide 1 of 13" />
+    </div>
+    <div class="slides-controls">
+      <button type="button" id="prev-slide">&lt; Prev</button>
+      <span id="slide-count">1 / 13</span>
+      <a href="assets/Open-Source_Chip_Design_sky130_Dunlea.pdf" download>Download PDF</a>
+      <button type="button" id="next-slide" class="dark">Next &gt;</button>
+    </div>
+  </dialog>
 
-    button.addEventListener('click', function () {
-      var address = email.textContent.trim();
-
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(address).then(function () {
-          button.textContent = 'Copied';
-          setTimeout(function () { button.textContent = 'Copy'; }, 2000);
-        });
-      } else {
-        window.location.href = 'mailto:' + address;
-      }
-    });
-  });
-  </script>
-
-  <!-- Fade sections in as they scroll into view, and highlight the current nav link -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var revealables = document.querySelectorAll('[data-reveal]');
-
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      revealables.forEach(function (el) { el.classList.add('visible'); });
-    } else {
-      var revealObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-      revealables.forEach(function (el) { revealObserver.observe(el); });
-    }
-
-    // Underline the nav link for whichever section is on screen.
-    var sections = document.querySelectorAll('main section[id]');
-    var navLinks = {};
-    document.querySelectorAll('.nav a').forEach(function (link) {
-      navLinks[link.getAttribute('href').replace('#', '')] = link;
-    });
-
-    if ('IntersectionObserver' in window) {
-      var navObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          var link = navLinks[entry.target.id];
-          if (!link) return;
-          if (entry.isIntersecting) {
-            Object.keys(navLinks).forEach(function (key) {
-              navLinks[key].classList.remove('active');
-            });
-            link.classList.add('active');
-          }
-        });
-      }, { rootMargin: '-45% 0px -50% 0px' });
-
-      sections.forEach(function (section) { navObserver.observe(section); });
-    }
-  });
-  </script>
+  <script src="script.js"></script>
 
   <!-- GoatCounter analytics -->
-  <script data-goatcounter="https://cadunlea.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
-
-  <!-- Pull the public view count from GoatCounter -->
-  <script>
-  window.addEventListener('load', function () {
-    var label = document.querySelector('.view-text');
-    if (!label) return;
-
-    fetch('https://cadunlea.goatcounter.com/counter/.json')
-      .then(function (response) {
-        if (!response.ok) throw new Error('Counter not available');
-        return response.json();
-      })
-      .then(function (data) {
-        var count = data.count || data.count_unique || 0;
-        label.textContent = 'Views: ' + Number(String(count).replace(/\D/g, '')).toLocaleString();
-      })
-      .catch(function () {
-        label.textContent = '';
-      });
-  });
-  </script>
+  <script data-goatcounter="https://cadunlea.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
